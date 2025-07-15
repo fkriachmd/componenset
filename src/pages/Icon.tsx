@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Clipboard } from "lucide-react";
+import { Clipboard, Link } from "lucide-react";
 
 interface CodeBlockProps {
   code: string;
@@ -101,7 +101,7 @@ export default function Icon() {
   };
 
   return (
-    <div className="min-h-screen text-gray-300 p-8">
+    <div className="h-fit text-gray-300 p-8">
       <header className="mb-12">
         <h1 className="text-4xl font-bold text-white mb-4">Icons</h1>
         <p className="text-lg text-gray-400">
@@ -110,7 +110,7 @@ export default function Icon() {
         </p>
       </header>
 
-      <section id="lucide-react" className="mb-16">
+      <section id="lucide-react" className="mb-10">
         <div className="flex flex-col items-start">
           <a
             href="https://lucide.dev/"
@@ -118,14 +118,14 @@ export default function Icon() {
             rel="noopener noreferrer"
             className="text-2xl font-bold group flex items-center mb-4"
           >
-            <span className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 ease-in-out font-bold mr-4 text-accent/80">
-              #
+            <span className="opacity-20 group-hover:opacity-100 transition-opacity duration-300 ease-in-out font-bold mr-2 text-accent">
+              <Link strokeWidth={3} height={22} />
             </span>
-            <h1 className="font-bold hover:text-white/70 transition-all duration-300 ease-in-out">
+            <h1 className="font-bold hover:text-white transition-all duration-300 ease-in-out">
               Lucide-React
             </h1>
           </a>
-          <p className="w-full max-w-2xl text-gray-400">
+          <p className="w-full max-w-2xl text-gray-400 text-base">
             Lucide is an open-source icon library that provides 1000+ vector
             (SVG) files for displaying icons and symbols in digital and
             non-digital projects.
@@ -134,7 +134,7 @@ export default function Icon() {
       </section>
 
       <section className="pl-10">
-        <h2 className="text-2xl font-semibold mb-4 text-white">Installation</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-text">Installation</h2>
         <CodeBlockComponent
           code={generateInstallCommand()}
           language="bash"

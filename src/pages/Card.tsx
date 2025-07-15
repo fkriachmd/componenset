@@ -60,12 +60,14 @@ export default function Card() {
 }`;
 
   return (
-    <div className="w-full">
-      <h1 className="text-3xl font-bold mb-2">Cards</h1>
-      <p className="mb-8">
-        Use the card component to display information in a compact way and link
-        to other internal pages.
-      </p>
+    <div className="w-full p-8">
+      <header className="mb-12">
+        <h1 className="text-4xl font-bold text-white mb-4">Cards</h1>
+        <p className="text-lg text-gray-400">
+          Use the card component to display information in a compact way and
+          link to other internal pages.
+        </p>
+      </header>
       <div id="content">
         <div className="">
           <h2 className="text-2xl font-semibold mb-2 flex items-center gap-2">
