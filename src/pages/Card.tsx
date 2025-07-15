@@ -30,6 +30,35 @@ export default function Card() {
   );
 }`;
 
+  const cardImageCode = `() => {
+  // import { ArrowRight } from "lucide-react";
+   
+  return (
+    <a href="#" className="w-96 px-8 py-7 bg-black/20 rounded-2xl flex flex-col items-start gap-4 group hover:bg-black/30 transition-all duration-300">
+      <img
+        src="https://placehold.co/356x237"
+        alt="Card Image"
+        className="rounded-xl"
+      />
+      <span className="text-sm px-4 py-1 rounded-full border border-link text-link">
+        Beta
+      </span>
+      <h3 className="text-xl font-semibold">Code search & code view</h3>
+      <p className=" text-gray-400">
+        Enables you to rapidly search, navigate, and understand code, right from
+        GitHub.com.
+      </p>
+      <p className="text-link w-fit">
+        Learn more
+        <ArrowRight
+          height={18}
+          className="inline-block ml-1 group-hover:translate-x-2 transition-all duration-300"
+        />
+      </p>
+    </a>
+  );
+}`;
+
   return (
     <div className="w-full">
       <h1 className="text-3xl font-bold mb-2">Cards</h1>
@@ -43,19 +72,36 @@ export default function Card() {
             <Layers />
             Examples
           </h2>
-          <p className="text-xl font-semibold text-accent hover:text-accent/70 transition-all duration-300 mb-2 w-fit">
-            Text Card
-          </p>
-          <p>
-            The call to action text defaults to Learn more and can be customized
-            using the React-Ts.
-          </p>
+          <div className="mb-8">
+            <p className="text-xl font-semibold text-accent hover:text-accent/70 transition-all duration-300 mb-2 w-fit">
+              Text Card
+            </p>
+            <p>
+              The call to action text defaults to Learn more and can be
+              customized using the React-Ts.
+            </p>
 
-          <LiveCodeEditor
-            code={cardTextCode}
-            title="Card Text"
-            editorHeight="420px"
-          />
+            <LiveCodeEditor
+              code={cardTextCode}
+              title="Card Text"
+              editorHeight="420px"
+            />
+          </div>
+          <div className="">
+            <p className="text-xl font-semibold text-accent hover:text-accent/70 transition-all duration-300 mb-2 w-fit">
+              Image Card
+            </p>
+            <p>
+              Combine Image and Label when you need to add more metadata or
+              context to the Card.
+            </p>
+
+            <LiveCodeEditor
+              code={cardImageCode}
+              title="Card Image"
+              editorHeight="420px"
+            />
+          </div>
         </div>
       </div>
     </div>

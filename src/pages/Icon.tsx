@@ -25,9 +25,9 @@ const CodeBlockComponent: React.FC<CodeBlockProps> = ({
   };
 
   return (
-    <div className="relative group">
+    <div className="relative group border border-gray-700 rounded-lg overflow-hidden shadow-md">
       {extraButtons && (
-        <div className="flex gap-2 border border-b-0 border-gray-700 rounded-t-md px-2 pt-2">
+        <div className="flex gap-2 bg-gray-800 border-b border-gray-700 rounded-t-lg px-4 py-2">
           {extraButtons}
         </div>
       )}
@@ -41,9 +41,9 @@ const CodeBlockComponent: React.FC<CodeBlockProps> = ({
       </button>
 
       <pre
-        className={`border border-gray-700 text-text text-sm p-4 ${
-          extraButtons ? "rounded-b-md border-t-0" : "rounded-md"
-        } overflow-auto font-mono language-${language} relative`}
+        className={`bg-black/20 text-gray-300 text-sm p-4 ${
+          extraButtons ? "rounded-b-lg" : "rounded-lg"
+        } overflow-auto font-mono language-${language}`}
       >
         <code>{code}</code>
       </pre>
@@ -85,65 +85,62 @@ export default function Icon() {
   };
 
   const createPackageManagerButtons = () => {
-    const buttons = [];
-
-    for (const [key, manager] of Object.entries(packageManagers)) {
-      buttons.push(
-        <button
-          key={key}
-          onClick={() => setSelectedPackageManager(key)}
-          className={`px-3 py-1 text-xs transition-colors ${
-            selectedPackageManager === key
-              ? "border-b-[3px] border-primary text-white"
-              : " text-gray-700 hover:text-gray-900"
-          }`}
-        >
-          {manager.displayName}
-        </button>
-      );
-    }
-
-    return buttons;
+    return Object.entries(packageManagers).map(([key, manager]) => (
+      <button
+        key={key}
+        onClick={() => setSelectedPackageManager(key)}
+        className={`px-3 py-1 text-xs transition-colors ${
+          selectedPackageManager === key
+            ? "border-b-[3px] border-primary text-white"
+            : "text-gray-400 hover:text-gray-200"
+        }`}
+      >
+        {manager.displayName}
+      </button>
+    ));
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-2">Icons</h1>
-      <p className="mb-8">
-        Use the icon component to display Octicons with an optional
-      </p>
-      <div id="lucide-react">
-        <div className="flex">
-          <div className="w-full">
-            <a
-              href="https://lucide.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl font-bold group flex"
-            >
-              <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out font-bold mr-4 text-accent/80">
-                #
-              </span>
-              <h1 className="font-bold mr-4 mb-4 hover:text-white/70 transition-all duration-300 ease-in-out">
-                Lucide-React
-              </h1>
-            </a>
-            <p className="w-[40rem] pl-8">
-              Lucide is an open-source icon library that provides 1000+ vector
-              (svg) files for displaying icons and symbols in digital and
-              non-digital projects.
-            </p>
-            <div className="pl-10 w-full mt-4">
-              <h2 className="text-2xl font-semibold mb-4">Installation</h2>
-              <CodeBlockComponent
-                code={generateInstallCommand()}
-                language="bash"
-                extraButtons={<>{createPackageManagerButtons()}</>}
-              />
-            </div>
-          </div>
+    <div className="min-h-screen text-gray-300 p-8">
+      <header className="mb-12">
+        <h1 className="text-4xl font-bold text-white mb-4">Icons</h1>
+        <p className="text-lg text-gray-400">
+          Use the icon component to display Octicons with optional
+          customization.
+        </p>
+      </header>
+
+      <section id="lucide-react" className="mb-16">
+        <div className="flex flex-col items-start">
+          <a
+            href="https://lucide.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl font-bold group flex items-center mb-4"
+          >
+            <span className="opacity-50 group-hover:opacity-100 transition-opacity duration-300 ease-in-out font-bold mr-4 text-accent/80">
+              #
+            </span>
+            <h1 className="font-bold hover:text-white/70 transition-all duration-300 ease-in-out">
+              Lucide-React
+            </h1>
+          </a>
+          <p className="w-full max-w-2xl text-gray-400">
+            Lucide is an open-source icon library that provides 1000+ vector
+            (SVG) files for displaying icons and symbols in digital and
+            non-digital projects.
+          </p>
         </div>
-      </div>
+      </section>
+
+      <section className="pl-10">
+        <h2 className="text-2xl font-semibold mb-4 text-white">Installation</h2>
+        <CodeBlockComponent
+          code={generateInstallCommand()}
+          language="bash"
+          extraButtons={<>{createPackageManagerButtons()}</>}
+        />
+      </section>
     </div>
   );
 }

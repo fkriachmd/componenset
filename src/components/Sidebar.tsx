@@ -15,7 +15,7 @@ const component = [
 
 export default function Sidebar() {
   return (
-    <nav className="w-64 text-sm bg-black/20 border-r border-gray-700 p-4 min-h-screen">
+    <nav className="w-64 text-sm bg-black/20 border-r border-gray-700 p-4 h-full overflow-y-auto flex-shrink-0">
       <a
         href="#"
         className="mb-8 text-xl font-semibold text-text flex items-center"
