@@ -15,7 +15,19 @@ export default function LiveCodeEditor({
   editorHeight = "420px",
 }: LiveCodeEditorProps) {
   return (
-    <div className="border border-gray-700 rounded-2xl overflow-hidden mt-6">
+    <div className="border border-gray-700 rounded-2xl overflow-hidden mt-6 fira-code-editor">
+      <style>
+        {`
+          .editor-fira-code,
+          .editor-fira-code textarea,
+          .editor-fira-code pre,
+          .editor-fira-code code {
+            font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace !important;
+            font-feature-settings: "liga" 1, "calt" 1 !important;
+            font-variant-ligatures: contextual !important;
+          }
+        `}
+      </style>
       <LiveProvider
         code={code}
         scope={{ ArrowRight, ...scope }}
@@ -125,19 +137,20 @@ export default function LiveCodeEditor({
           <div className="bg-gray-800 px-4 py-2 text-sm text-gray-300">
             {title}
           </div>
-          <LiveEditor
-            style={{
-              fontFamily:
-                'Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace',
-              fontSize: 14,
-              minHeight: editorHeight,
-              padding: "16px",
-              backgroundColor: "#001822",
-              color: "#abb2bf",
-              outline: "none",
-              border: "none",
-            }}
-          />
+          <div className="editor-fira-code">
+            <LiveEditor
+              className="editor-fira-code"
+              style={{
+                fontSize: 14,
+                minHeight: editorHeight,
+                padding: "16px",
+                backgroundColor: "#001822",
+                color: "#abb2bf",
+                outline: "none",
+                border: "none",
+              }}
+            />
+          </div>
         </div>
 
         {/* Error Display */}
