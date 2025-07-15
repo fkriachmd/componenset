@@ -17,7 +17,7 @@ export default function Card() {
         Collaboration is the key to DevOps success
       </h3>
       <p className="text-sm text-gray-400">
-        Everything you need to know about getting started with GitHub Actions.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsa sequi vitae?
       </p>
       <p className="text-link w-fit">
         Learn more
@@ -45,8 +45,7 @@ export default function Card() {
       </span>
       <h3 className="text-xl font-semibold">Code search & code view</h3>
       <p className=" text-gray-400">
-        Enables you to rapidly search, navigate, and understand code, right from
-        GitHub.com.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis perspiciatis neque aliquam eius, explicabo ad laborum?
       </p>
       <p className="text-link w-fit">
         Learn more
