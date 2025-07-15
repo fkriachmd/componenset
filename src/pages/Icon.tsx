@@ -105,8 +105,8 @@ export default function Icon() {
       <header className="mb-12">
         <h1 className="text-4xl font-bold text-white mb-4">Icons</h1>
         <p className="text-lg text-gray-400">
-          Use the icon component to display Octicons with optional
-          customization.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+          suscipit distinctio.
         </p>
       </header>
 
